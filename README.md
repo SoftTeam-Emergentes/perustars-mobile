@@ -1,16 +1,38 @@
-# peru_stars_mobile
+# perustars-mobile
 
-A new Flutter project.
+PeruStars Mobile App Frontend
 
-## Getting Started
+Probado usando Pixel 5 API 28 (Android 9) en emulación
 
-This project is a starting point for a Flutter application.
+# Instalación y ejecución
 
-A few resources to get you started if this is your first Flutter project:
+SDKs requeridos:
+- Dart 2.17.0
+- Flutter 3.0.0
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Para obtener dependencias:
+```sh
+flutter pub get
+flutter pub upgrade
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para ejecutar el proyecto:
+```sh
+flutter run lib/main.dart --no-sound-null-safety
+```
+
+Para crear archivo APK:
+```sh
+flutter build apk --no-sound-null-safety
+```
+
+# Solución de problemas de ejecución
+Configuraciones de Android para compilación (Cambiar en "android/app/build.gradle"):
+- compileSdkVersion 33
+- minSdkVersion 28
+- targetSdkVersion 28
+
+Reemplazar Gradle en "android/build.gradle" con lo siguiente:
+```sh
+classpath 'com.android.tools.build:gradle:4.2.2'
+```
