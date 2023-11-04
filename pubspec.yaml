@@ -1,0 +1,48 @@
+name: peru_stars_mobile
+description: A new Flutter project.
+
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.2
+  google_fonts:
+  flutter_svg:
+  carousel_slider:
+  curved_navigation_bar:
+  http:
+  dio: ^3.0.10
+  flutter_secure_storage:
+  flutter_native_splash:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^1.0.0
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/background-splash.png
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
