@@ -6,7 +6,7 @@ import 'package:peru_stars_mobile/services/hobbyists-api.service.dart';
 import 'package:peru_stars_mobile/services/mini-storage.dart' as storage;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:peru_stars_mobile/ui/pages/home_page.dart';
-import 'package:peru_stars_mobile/ui/pages/login_page.dart';
+import 'package:peru_stars_mobile/identity_and_access_management/presentation/pages/login_page.dart';
 import 'package:peru_stars_mobile/ui/pages/profile_page.dart';
 import 'ui/widgets/BottomBar.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

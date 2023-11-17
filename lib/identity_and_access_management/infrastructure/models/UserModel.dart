@@ -12,7 +12,7 @@ class UserModel extends User{
       'firstName':firstName,
       'lastName':lastName,
       'email':email,
-      'description':password
+      'password':password
     };
   }
 }
