@@ -1,28 +1,18 @@
-class User{
-  int? id;
-  String? firstName;
-  String? lastName;
-  String? email;
-  String? password;
+import 'package:equatable/equatable.dart';
 
+class User extends Equatable{
   User({
-    this.id, required this.firstName, required this.lastName, required this.email,required this.password
-});
+     required this.firstName, required this.lastName, required this.email,required this.password
+  });
 
-  User.fromJson(Map<String,dynamic> json){
-    id=json['id'];
-    firstName=json['firstName'];
-    lastName=json['lastName'];
-    email=json['email'];
-    password=json['password'];
-  }
-  Map<String,dynamic> toJson(){
-    final Map<String,dynamic> data= Map<String,dynamic>();
-    data['id']=this.id;
-    data['firstName']=this.firstName;
-    data['lastName']=this.lastName;
-    data['emai']=this.email;
-    data['password']=this.password;
-    return data;
-  }
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String password;
+
+
+
+
+  @override
+  List<Object?> get props => <dynamic>[firstName,lastName,email,password];
 }
