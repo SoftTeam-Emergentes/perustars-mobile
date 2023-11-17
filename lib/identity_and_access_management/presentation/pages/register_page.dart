@@ -346,7 +346,7 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() {
         _loading = true;
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => MyHomePage()));
+            .push(MaterialPageRoute(builder: (context) => LoginPage()));
       });
     }
   }

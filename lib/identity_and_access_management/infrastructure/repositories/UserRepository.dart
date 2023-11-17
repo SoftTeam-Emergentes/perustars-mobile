@@ -23,8 +23,9 @@ class UserRepository implements UserInterface {
 
       try{
         LogInUserModel model=LogInUserModel(email: email,password: password);
+        log("Sending data"+model.toString());
         Response response=await _userRemoteDataProvider.logIn(model);
-        log(response.toString());
+        log("Server response: "+response.toString());
         await storage.writeAsync('token', response.data['token']);
         return true;
       }catch(e){

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/identity_and_access_management/infrastructure/repositories/UserRepository.dart';
 import 'package:peru_stars_mobile/services/mini-storage.dart' as storage;
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +12,7 @@ import 'package:peru_stars_mobile/models/user.dart';
 import 'package:peru_stars_mobile/services/artists-api.service.dart';
 import 'package:peru_stars_mobile/services/hobbyists-api.service.dart';
 import 'package:peru_stars_mobile/services/users-api.service.dart';
+import 'package:peru_stars_mobile/ui/pages/home_amateur.dart';
 import 'package:peru_stars_mobile/ui/pages/profile_page.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/presentation/pages/register_page.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/presentation/widgets/login_background.dart';
@@ -248,20 +250,19 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
 
-      final User userDataFromUi = User(
+      final  userDataFromUi = User(
           username: _usernameController.text,
           password: _passwordController.text);
 
       log('input: ' + userDataFromUi.toMap().toString());
 
-      dynamic response = await UserApiService().login(userDataFromUi);
-      log(response);
-
+      dynamic response = await UserRepository().logIn(_usernameController.text, _passwordController.text);
+      if(response){
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => MyHomePage()));
+      }
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-      if (response.statusCode == 200) {
-        _nextPageAfterLogin(context, response.data["id"]);
-      }
       _loading = false;
       return;
     }
