@@ -23,10 +23,10 @@ dependencies:
   carousel_slider:
   curved_navigation_bar:
   http:
-  dio: 5.3.3
+  dio: ^3.0.10
   flutter_secure_storage:
   flutter_native_splash:
-  equatable: ^2.0.3
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:

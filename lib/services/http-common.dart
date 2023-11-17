@@ -23,8 +23,7 @@ Future<Response> post(String url, Map<String, dynamic> body,
     print(e);
     return Response(
       statusCode: e.response?.statusCode,
-      data: e.response?.data, 
-      requestOptions: RequestOptions(),
+      data: e.response?.data
     );
   }
 }
@@ -42,8 +41,7 @@ Future<Response> put(String url, Map<String, dynamic> body,
     print(e);
     return Response(
       statusCode: e.response?.statusCode,
-      data: e.response?.data,
-      requestOptions: RequestOptions()
+      data: e.response?.data
     );
   }
 }
@@ -60,8 +58,7 @@ Future<Response> get(String url, [String? functionName]) async {
     print(e);
     return Response(
       statusCode: e.response?.statusCode,
-      data: e.response?.data,
-      requestOptions: RequestOptions()
+      data: e.response?.data
     );
   }
 }
@@ -78,8 +75,7 @@ Future<Response> delete(String url, [String? functionName]) async {
     print(e);
     return Response(
       statusCode: e.response?.statusCode,
-      data: e.response?.data,
-      requestOptions: RequestOptions()
+      data: e.response?.data
     );
   }
 }

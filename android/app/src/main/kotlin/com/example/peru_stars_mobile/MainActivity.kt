@@ -1,4 +1,4 @@
-package com.softteam.peru_stars_mobile
+package com.example.peru_stars_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

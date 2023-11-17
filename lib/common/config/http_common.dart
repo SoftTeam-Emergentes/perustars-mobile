@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class HttpCommon {
+abstract class HttpCommon {
   final String _baseUrl = "https://perustarsdddapi.azurewebsites.net";
   final Map<String, String> _headers = const {
     'Content-type': 'application/json',
@@ -12,7 +12,8 @@ class HttpCommon {
   HttpCommon() {
     _dio = Dio(BaseOptions(
       baseUrl: _baseUrl, 
-      responseType: ResponseType.json
+      responseType: ResponseType.json,
+      contentType: "application/json"
     ));
     _options = Options(headers: _headers);
   }
@@ -21,11 +22,10 @@ class HttpCommon {
     try {
       Response<T> response = await _dio.get(url, options: _options);
       return response;
-    } on DioException catch (e) {
+    } on DioError catch (e) {
       return Response(
         statusCode: e.response?.statusCode,
-        data: e.response?.data, 
-        requestOptions: RequestOptions(),
+        data: e.response?.data
       );
     }
   }
@@ -33,11 +33,10 @@ class HttpCommon {
     try {
       Response<T> response = await _dio.post(url, data: body, options: _options);
       return response;
-    } on DioException catch(e) {
+    } on DioError catch(e) {
       return Response(
         statusCode: e.response?.statusCode,
-        data: e.response?.data, 
-        requestOptions: RequestOptions(),
+        data: e.response?.data
       );
     }
   }
@@ -46,23 +45,34 @@ class HttpCommon {
     try {
       Response<T> response = await _dio.put(url, data: body, options: _options);
       return response;
-    } on DioException catch(e) {
+    } on DioError catch(e) {
       return Response(
         statusCode: e.response?.statusCode,
-        data: e.response?.data, 
-        requestOptions: RequestOptions(),
+        data: e.response?.data
       );
     }
   }
-  Future<Response<T>> delete<T>(String url, Map<String, dynamic> body) async {
+
+  Future<Response<T>> patch<T>(String url, Map<String, dynamic>? body) async {
+    try {
+      Response<T> response = await _dio.patch(url, data: body, options: _options);
+      return response;
+    } on DioError catch(e) {
+      return Response(
+        statusCode: e.response?.statusCode,
+        data: e.response?.data
+      );
+    }
+  }
+
+  Future<Response<T>> delete<T>(String url) async {
     try {
       Response<T> response = await _dio.delete(url, options: _options);
       return response;
-    } on DioException catch(e) {
+    } on DioError catch(e) {
       return Response(
         statusCode: e.response?.statusCode,
-        data: e.response?.data, 
-        requestOptions: RequestOptions(),
+        data: e.response?.data
       );
     }
   }
