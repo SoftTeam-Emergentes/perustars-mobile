@@ -10,10 +10,10 @@ class InitialArtEventListState extends ArtEventListState {
   List<Object?> get props => [];
 }
 
-class ArtEvenListLoadedState extends ArtEventListState {
+class ArtEventListLoadedState extends ArtEventListState {
   final List<ArtEvent> artEvents;
 
-  const ArtEvenListLoadedState(this.artEvents);
+  const ArtEventListLoadedState(this.artEvents);
 
   @override
   List<Object?> get props => [artEvents];
@@ -23,10 +23,10 @@ class ArtEvenListLoadedState extends ArtEventListState {
     return "ArtEvenListLoadedState total: ${artEvents.length}";
   }
 }
-class ArtEvenListUpdatedState extends ArtEventListState {
+class ArtEventListUpdatedState extends ArtEventListState {
   final List<ArtEvent> artEvents;
 
-  const ArtEvenListUpdatedState(this.artEvents);
+  const ArtEventListUpdatedState(this.artEvents);
 
   @override
   List<Object?> get props => [artEvents];

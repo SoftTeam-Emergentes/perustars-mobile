@@ -1,10 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:peru_stars_mobile/art_event_management/domain/entities/art_event.dart';
-import 'package:peru_stars_mobile/art_event_management/presentation/art_event_card/art_event_card.dart';
-import 'package:peru_stars_mobile/ui/widgets/NavBar.dart';
+import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
 import 'bloc/bloc.dart';
 
 class ArtEventsListWidget extends StatefulWidget {
@@ -18,10 +14,22 @@ class ArtEventsListWidget extends StatefulWidget {
 class _ArtEventListState extends State<ArtEventsListWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Art Events"), automaticallyImplyLeading: false),
-      
+    return BlocProvider<ArtEventListBloc>(
+      create: (BuildContext context) => 
+      DependencyInjectionProvider.instance().injectInstance<ArtEventListBloc>()..add(FetchArtEventListEvent()),
+      child: BlocBuilder<ArtEventListBloc, ArtEventListState>(
+        builder: (BuildContext context, ArtEventListState state) {
+          if(state is ArtEventListLoadedState) {
+            return const Text("GAAAA");
+          }
+          return const Text("No bloc widget found");
+        }
+      ),
     );
+    // return Scaffold(
+    //   appBar: AppBar(title: const Text("Art Events"), automaticallyImplyLeading: false),
+      
+    // );
   }
 
 }

@@ -13,7 +13,7 @@ class ArtEventListBloc extends Bloc<ArtEventListEvent, ArtEventListState> {
 
   void onFetchArtEventList(FetchArtEventListEvent event, Emitter<ArtEventListState> emitter) async {
     final List<ArtEvent> artEvents = await _artEventFacadeService.getAllArtEvents();
-    emitter.call(ArtEvenListLoadedState(artEvents));
+    emitter.call(ArtEventListLoadedState(artEvents));
   }
   
 }
