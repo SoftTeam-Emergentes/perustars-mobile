@@ -7,13 +7,18 @@ class Participant extends Equatable {
   Participant({
     this.id,
     required this.userName,
+    required this.hobbystId,
+    required this.artEventId,
+    this.registerDateTime
   }) {
-    registerDateTime = DateTime.now();
+    registerDateTime = registerDateTime ?? DateTime.now();
   }
 
-  final Long? id;
+  final BigInt? id;
   final String userName;
-  late final DateTime registerDateTime;
+  final BigInt hobbystId;
+  final BigInt artEventId;
+  late final DateTime? registerDateTime;
   DateTime? participantRegistrationDateTime;
 
   @override

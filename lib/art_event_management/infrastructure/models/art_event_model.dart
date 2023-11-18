@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:peru_stars_mobile/art_event_management/domain/entities/art_event.dart';
 import 'package:peru_stars_mobile/art_event_management/domain/enums/art_event_status.dart';
 
@@ -7,12 +5,12 @@ import '../../domain/value_objects/location.dart';
 
 class ArtEventModel extends ArtEvent {
   const ArtEventModel(
-    Long id,
+    BigInt? id,
     String title,
     String description,
     DateTime startDateTime,
     bool isOnline,
-    Long artistId,
+    BigInt artistId,
     ArtEventStatus artEventStatus,
     bool collected,
     Location? location
@@ -28,7 +26,7 @@ class ArtEventModel extends ArtEvent {
       "description": description,
       "startDateTime": startDateTime,
       "isOnline": isOnline,
-      "artistId": artistId,
+      "artistId": artistId.toInt(),
       "artEventStatus": artEventStatus,
       "collected": collected,
       "location": location

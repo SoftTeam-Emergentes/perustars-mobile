@@ -6,4 +6,5 @@ abstract class ParticipantInterface {
   Future<List<Participant>> getParticipantsByArtistId();
   Future<List<Participant>> getAllParticipants();
   Future<String> deleteParticipantById(Long participantId);
+  Future<Participant> registerParticipation(Participant participant);
 }

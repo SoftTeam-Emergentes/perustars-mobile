@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:equatable/equatable.dart';
 import 'package:peru_stars_mobile/art_event_management/domain/enums/art_event_status.dart';
 
@@ -18,12 +16,12 @@ class ArtEvent extends Equatable {
     this.collected = false
   });
 
-  final Long? id;
+  final BigInt? id;
   final String title;
   final String description;
   final DateTime startDateTime;
   final bool isOnline;
-  final Long artistId;
+  final BigInt artistId;
   final Location? location;
   final ArtEventStatus? artEventStatus;
   final bool? collected;
@@ -31,11 +29,11 @@ class ArtEvent extends Equatable {
   @override
   List<Object?> get props => [id, title, description, startDateTime, isOnline, artistId];
 
-  static ArtEvent createInstance(
+  factory ArtEvent.createInstance(
     String title,
     String description,
     DateTime startDateTime,
-    Long artistId
+    BigInt artistId
   ) {
     return ArtEvent(title: title, description: description, startDateTime: startDateTime, artistId: artistId);
   }

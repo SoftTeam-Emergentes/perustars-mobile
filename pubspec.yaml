@@ -27,6 +27,7 @@ dependencies:
   flutter_secure_storage:
   flutter_native_splash:
   equatable: ^2.0.5
+  flutter_bloc: ^7.3.0
 
 dev_dependencies:
   flutter_test:

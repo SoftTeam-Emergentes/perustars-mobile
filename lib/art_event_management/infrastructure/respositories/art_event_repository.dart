@@ -41,10 +41,14 @@ class ArtEventRepository implements ArtEventInterface {
       List<ArtEventModel> response = await _artEventRemoteProvider.getAllArtEvents();
       List<ArtEvent> artEvents = [];
       for (ArtEventModel artEventModel in response) {
-        artEvents.add(ArtEvent(title: artEventModel.title, 
-        description: artEventModel.description, 
-        startDateTime: artEventModel.startDateTime, 
-        artistId: artEventModel.artistId));
+        artEvents.add(
+          ArtEvent.createInstance(
+            artEventModel.title,
+            artEventModel.description,
+            artEventModel.startDateTime,
+            artEventModel.artistId
+          )
+        );
       }
       return artEvents;
     } catch(e) {
