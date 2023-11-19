@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Artist extends Equatable{
+  final int? Id;
   final int userId;
   final int age;
   final String brandName;
@@ -11,7 +12,7 @@ class Artist extends Equatable{
   final String genre;
   final List<String> socialMediaLink;
 
-  Artist({required this.userId, required this.age, required this.brandName, required this.description, required this.phrase, required this.contactNumber, required this.contactEmail, required this.genre, required this.socialMediaLink});
+  Artist({this.Id,required this.userId, required this.age, required this.brandName, required this.description, required this.phrase, required this.contactNumber, required this.contactEmail, required this.genre, required this.socialMediaLink});
 
 
   @override
