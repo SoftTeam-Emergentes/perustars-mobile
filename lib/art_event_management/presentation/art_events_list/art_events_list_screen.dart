@@ -18,8 +18,8 @@ class _ArtEventListScreenState extends State<ArtEventsListScreenWidget> {
     return Scaffold(
       appBar: AppBar(title: const Text("Art Events"), automaticallyImplyLeading: false),
       body: BlocProvider<ArtEventListBloc>(
-      create: (BuildContext context) => 
-        DependencyInjectionProvider.instance()
+        create: (BuildContext context) => 
+          DependencyInjectionProvider.instance()
           .injectInstance<ArtEventListBloc>()..add(FetchArtEventListEvent()),
         child: BlocBuilder<ArtEventListBloc, ArtEventListState>(
           builder: (BuildContext context, ArtEventListState state) {

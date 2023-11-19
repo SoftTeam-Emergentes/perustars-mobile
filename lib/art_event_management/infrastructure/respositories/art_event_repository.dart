@@ -38,18 +38,7 @@ class ArtEventRepository implements ArtEventInterface {
   @override
   Future<List<ArtEvent>> getAllEvents() async {
     try {
-      List<ArtEventModel> response = await _artEventRemoteProvider.getAllArtEvents();
-      List<ArtEvent> artEvents = [];
-      for (ArtEventModel artEventModel in response) {
-        artEvents.add(
-          ArtEvent.createInstance(
-            artEventModel.title,
-            artEventModel.description,
-            artEventModel.startDateTime,
-            artEventModel.artistId
-          )
-        );
-      }
+      List<ArtEvent> artEvents = await _artEventRemoteProvider.getAllArtEvents();
       return artEvents;
     } catch(e) {
       log("XD");

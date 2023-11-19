@@ -1,15 +1,11 @@
 import 'dart:io';
 
-import 'package:equatable/equatable.dart';
+import '../utils/http_status.dart';
 
-class ServerException extends Equatable{
-  final String message;
+class ServerException extends HttpException {
   final HttpStatus status;
   final Map<String, dynamic>? additionalInfo;
 
-  const ServerException(this.message, this.status, {this.additionalInfo});
-
-  @override
-  List<Object?> get props => [message, status, additionalInfo];
+  ServerException(String message, this.status, {this.additionalInfo}) : super(message);
 
 }
