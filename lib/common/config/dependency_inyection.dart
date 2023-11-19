@@ -16,32 +16,32 @@ class DependencyInjectionProvider {
     return _instance;
   }
   T injectInstance<T>() {
-    if(_serviceMap.containsKey(T) == false) {
+    if(_dependencyMap.containsKey(T) == false) {
       throw ArgumentError("Type $T is not registered");
     }
-    return _serviceMap[T];
+    return _dependencyMap[T];
   }
 
-  final Map<Type, dynamic> _serviceMap = HashMap<Type, dynamic>();
+  final Map<Type, dynamic> _dependencyMap = HashMap<Type, dynamic>();
 
   void _configureServiceMap() {
     /* Art Events Dependencies Inyections */
-    _serviceMap[ArtEventInterface] = ArtEventRepository();
-    _serviceMap[ArtEventFacadeService] = ArtEventFacadeService();
-    _serviceMap[ArtEventListBloc] = ArtEventListBloc(
-      artEventFacadeService: _serviceMap[ArtEventFacadeService] as ArtEventFacadeService
+    _dependencyMap[ArtEventInterface] = ArtEventRepository();
+    _dependencyMap[ArtEventFacadeService] = ArtEventFacadeService();
+    _dependencyMap[ArtEventListBloc] = ArtEventListBloc(
+      artEventFacadeService: _dependencyMap[ArtEventFacadeService] as ArtEventFacadeService
     );
 
     /* Notifications Dependencies Inyections */
-    _serviceMap[NotificationRemoteDataProvider] = NotificationRemoteDataProvider();
-    _serviceMap[NotificationInterface] = NotificationRepository(
-      notificationRemoteDataProvider: _serviceMap[NotificationRemoteDataProvider] as NotificationRemoteDataProvider
+    _dependencyMap[NotificationRemoteDataProvider] = NotificationRemoteDataProvider();
+    _dependencyMap[NotificationInterface] = NotificationRepository(
+      notificationRemoteDataProvider: _dependencyMap[NotificationRemoteDataProvider] as NotificationRemoteDataProvider
     );
-    _serviceMap[NotificationFacadeService] = NotificationFacadeService(
-      notificationRepository: _serviceMap[NotificationInterface] as NotificationInterface
+    _dependencyMap[NotificationFacadeService] = NotificationFacadeService(
+      notificationRepository: _dependencyMap[NotificationInterface] as NotificationInterface
     );
-    _serviceMap[NotificationListBloc] = NotificationListBloc(
-      notificationFacadeService: _serviceMap[NotificationFacadeService] as NotificationFacadeService
+    _dependencyMap[NotificationListBloc] = NotificationListBloc(
+      notificationFacadeService: _dependencyMap[NotificationFacadeService] as NotificationFacadeService
     );
 
   }

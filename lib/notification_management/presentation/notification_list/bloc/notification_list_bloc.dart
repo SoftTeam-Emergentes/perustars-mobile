@@ -21,6 +21,10 @@ class NotificationListBloc extends Bloc<NotificationListEvent, NotificationListS
       notifications = await _notificationFacadeService
       .fetchAllNotificationsByArtistId(event.artistId as BigInt);
     }
+    if(event.hobbyistId != null) {
+      notifications = await _notificationFacadeService
+      .fetchAllNotificationsByHobbyistId(event.hobbyistId as BigInt);
+    }
     emitter.call(VisibleNotificationListState(notifications: notifications));
   }
 
