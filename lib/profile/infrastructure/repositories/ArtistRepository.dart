@@ -9,34 +9,33 @@ class ArtistRepository implements ArtistInterface{
     _artistRemoteDataProvider=ArtistRemoteDataProvider();
   }
   @override
-  Future CreateArtist(int userId, int age, String brandName, String description, String phrase, int contactNumber, String contactEmail, String genre, List<String> socialMediaLink) {
+  Future CreateArtist(int userId, int age, String brandName, String description, String phrase, int contactNumber, String contactEmail, String genre, List<String> socialMediaLink) async{
     ArtistModel artistModel=ArtistModel(Id: 0, userId: userId, age: age, brandName: brandName, description: description, phrase: phrase, contactNumber: contactNumber, contactEmail: contactEmail, genre: genre, socialMediaLink: socialMediaLink);
-    Future response=_artistRemoteDataProvider.createArtist(artistModel);
+    Response response=await _artistRemoteDataProvider.createArtist(artistModel);
     return response;
   }
 
   @override
-  Future DeleteArtistById(int id) {
-    Future response=_artistRemoteDataProvider.deleteArtistById(id);
+  Future DeleteArtistById(int id)async {
+    Response response=await _artistRemoteDataProvider.deleteArtistById(id);
     return response;
   }
 
   @override
-  Future EditArtistById(int id) {
+  Future EditArtistById(int id) async{
 
     throw UnimplementedError();
   }
 
   @override
-  Future GetAllArtist() {
-    Future response= _artistRemoteDataProvider.getAllArtist();
+  Future GetAllArtist() async {
+    Response response=await _artistRemoteDataProvider.getAllArtist();
     return response;
   }
 
   @override
-  Future GetArtistById(int id) {
-    Future response=_artistRemoteDataProvider.getArtistByArtistId(id);
+  Future GetArtistById(int id) async{
+    Response response=await _artistRemoteDataProvider.getArtistByArtistId(id);
     return response;
   }
-
 }

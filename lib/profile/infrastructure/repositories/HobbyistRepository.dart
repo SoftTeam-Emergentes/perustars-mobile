@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:peru_stars_mobile/profile/domain/interfaces/HobbyistInterface.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/data_source/hobbyist_remote_data_provider.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/models/hobbyist_model.dart';
@@ -9,15 +10,15 @@ class HobbyistRepository implements HobbyistInterface{
   }
 
   @override
-  Future createHobbyist(int userId, int age) {
+  Future createHobbyist(int userId, int age) async{
     HobbyistModel model=HobbyistModel(id:0, userId: userId, age: age);
-    Future response=_hobbyistDataProvider.createHobbyist(model);
+    Response response=await _hobbyistDataProvider.createHobbyist(model);
     return response;
   }
 
   @override
-  Future deleteHobbyistById(int id) {
-    Future response= _hobbyistDataProvider.deleteHobbyistById(id);
+  Future deleteHobbyistById(int id) async{
+    Response response= await _hobbyistDataProvider.deleteHobbyistById(id);
     return response;
   }
 
@@ -27,8 +28,8 @@ class HobbyistRepository implements HobbyistInterface{
   }
 
   @override
-  Future getHobbyistById(int id) {
-    Future response= _hobbyistDataProvider.getHobbyistById(id);
+  Future getHobbyistById(int id) async{
+    Response response= await _hobbyistDataProvider.getHobbyistById(id);
     return response;
   }
 
