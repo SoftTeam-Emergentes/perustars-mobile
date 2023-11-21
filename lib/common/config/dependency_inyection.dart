@@ -4,6 +4,7 @@ import 'package:peru_stars_mobile/art_event_management/application/art_event_fac
 import 'package:peru_stars_mobile/art_event_management/domain/interfaces/art_event_interface.dart';
 import 'package:peru_stars_mobile/art_event_management/infrastructure/respositories/art_event_repository.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/art_events_list/bloc/bloc.dart';
+import 'package:peru_stars_mobile/art_event_management/presentation/services/art_event_shared_service.dart';
 import 'package:peru_stars_mobile/notification_management/application/notification_facade_service.dart';
 import 'package:peru_stars_mobile/notification_management/domain/interfaces/notification_interface.dart';
 import 'package:peru_stars_mobile/notification_management/infrastructure/data_sources/notification_remote_data_provider.dart';
@@ -31,6 +32,7 @@ class DependencyInjectionProvider {
     _dependencyMap[ArtEventListBloc] = ArtEventListBloc(
       artEventFacadeService: _dependencyMap[ArtEventFacadeService] as ArtEventFacadeService
     );
+    _dependencyMap[ArtEventSharedService] = ArtEventSharedService();
 
     /* Notifications Dependencies Inyections */
     _dependencyMap[NotificationRemoteDataProvider] = NotificationRemoteDataProvider();

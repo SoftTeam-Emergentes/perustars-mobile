@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/widgets/art_event_card.dart';
 import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
-import 'bloc/bloc.dart';
+import '../bloc/bloc.dart';
 
-class ArtEventsListScreenWidget extends StatefulWidget {
-  const ArtEventsListScreenWidget({Key? key}) : super(key: key);
+class HobbyistArtEventListScreen extends StatelessWidget {
+  const HobbyistArtEventListScreen({Key? key}) : super(key: key);
 
-  @override
-  State<StatefulWidget> createState() => _ArtEventListScreenState();
-
-}
-
-class _ArtEventListScreenState extends State<ArtEventsListScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +25,11 @@ class _ArtEventListScreenState extends State<ArtEventsListScreenWidget> {
                 }
               );
             }
+            
             return const Text("No bloc widget found");
           }
         ),
-      ),
+      )
     );
   }
 
