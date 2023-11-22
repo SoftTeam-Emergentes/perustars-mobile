@@ -14,11 +14,17 @@ class ArtworkModel extends ArtWork{
   }
   Map<String,dynamic> toRegisterArtworkJson(){
     return{
-      'Title': Title,
-      'Description':Description,
-      'MainContent':MainContent,
-      'Price':Price,
-      'ArtworkContent':CoverImage
+      'title': Title,
+      'description':Description,
+      'mainContent': {
+        'content':MainContent.Content,
+        'format':MainContent.Format
+      },
+      'price':Price,
+      'artworkContent':{
+        'content':CoverImage.Content,
+        'format':CoverImage.Format
+      }
     };
   }
 }

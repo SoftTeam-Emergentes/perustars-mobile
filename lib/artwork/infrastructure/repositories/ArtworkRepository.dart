@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:dio/src/response.dart';
 import 'package:peru_stars_mobile/artwork/domain/ValueObjects/ArtworkContent.dart';
 import 'package:peru_stars_mobile/artwork/domain/enum/ArtworkStatus.dart';
