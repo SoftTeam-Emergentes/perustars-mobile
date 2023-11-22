@@ -1,0 +1,4 @@
+#Thu Nov 02 20:49:41 PET 2023
+base.0=/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

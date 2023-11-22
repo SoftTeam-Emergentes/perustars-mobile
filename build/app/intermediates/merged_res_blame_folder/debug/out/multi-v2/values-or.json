@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml",
+            "map": [
+                {
+                    "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/values-or/values-or.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

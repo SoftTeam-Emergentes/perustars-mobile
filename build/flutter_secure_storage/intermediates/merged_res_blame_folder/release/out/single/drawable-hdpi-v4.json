@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/flutter_secure_storage/intermediates/res/merged/release/drawable-hdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "/home/fable/.gradle/caches/transforms-3/ff8342cd150967bac6e263c35b1e1b2d/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/flutter_secure_storage/intermediates/res/merged/release/drawable-hdpi-v4/notification_bg_low_normal.9.png",
+        "source": "/home/fable/.gradle/caches/transforms-3/ff8342cd150967bac6e263c35b1e1b2d/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/flutter_secure_storage/intermediates/res/merged/release/drawable-hdpi-v4/notification_bg_normal.9.png",
+        "source": "/home/fable/.gradle/caches/transforms-3/ff8342cd150967bac6e263c35b1e1b2d/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/flutter_secure_storage/intermediates/res/merged/release/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/home/fable/.gradle/caches/transforms-3/ff8342cd150967bac6e263c35b1e1b2d/transformed/core-1.6.0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/flutter_secure_storage/intermediates/res/merged/release/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "/home/fable/.gradle/caches/transforms-3/ff8342cd150967bac6e263c35b1e1b2d/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    }
+]

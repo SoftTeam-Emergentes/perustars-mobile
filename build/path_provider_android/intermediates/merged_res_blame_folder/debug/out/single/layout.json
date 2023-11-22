@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/path_provider_android/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/path_provider_android/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/path_provider_android/intermediates/res/merged/debug/layout/custom_dialog.xml",
+        "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/path_provider_android/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/path_provider_android/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/home/fable/Documentos/UPC Academico/Arquitectura de Software Emergentes/perustars-mobile/build/path_provider_android/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/home/fable/.gradle/caches/transforms-3/05562a045b7a8f80494ffbc47e915a19/transformed/core-1.6.0/res/layout/notification_template_icon_group.xml"
+    }
+]
