@@ -9,7 +9,7 @@ class CreateArtworkReviewModel{
 
   int getHobbyistId(){return hobbyistId;}
   int getArtworkId(){return artworkId;}
-  CreateArtworkReviewModel({required this.hobbyistId,required this.artworkId,required this.title,required this.comment, this.calification});
+  CreateArtworkReviewModel({required this.hobbyistId,required this.artworkId,required this.title,required this.comment, required this.calification});
   Map<String,dynamic> toJson(){
     return {
     'title':title,
