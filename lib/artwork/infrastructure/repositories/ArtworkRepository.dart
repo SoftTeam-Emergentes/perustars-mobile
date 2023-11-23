@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ffi';
 import 'package:dio/src/response.dart';
 import 'package:peru_stars_mobile/artwork/domain/ValueObjects/ArtworkContent.dart';
@@ -35,6 +36,25 @@ class ArtworkRepository implements ArtworkInterface{
   Future<Response> getArtworks() async{
     Response response= await artworkDataProvider.getAllArtworks();
     return response;
+  }
+
+  @override
+  Future<Response> favoriteArtwork(int artworkId, int hobbyistId) async{
+    Response response= await artworkDataProvider.createFavoriteArtwork(artworkId, hobbyistId);
+    return response;
+  }
+
+  @override
+  Future<List<ArtworkModel>> getFavoritesArtworksByHobbyistId(int hobbyistId) async{
+    try{
+      Response response=await artworkDataProvider.getFavoriteArtwork(hobbyistId);
+      List<dynamic> listApi=json.decode(response.data);
+      List<ArtworkModel> favoriteArtworks=listApi.map((e) => ArtworkModel.fromJson(e)).toList();
+      return favoriteArtworks;
+    }catch(e){
+      throw Exception("Something went wrong in favorites artworks, error: "+e.toString());
+    }
+
   }
 
 

@@ -20,5 +20,13 @@ class ArtworkDataProvider extends HttpCommon{
     Response response= await delete("/api/v1/artworks/artists/"+artistId.toString()+"/"+artworkId.toString());
     return response;
   }
+  Future<Response> createFavoriteArtwork(int artworkId,int hobbyistId)async{
+    Response response=await post("/api/v1/hobbyistfavoriteartworks/artworks/${artworkId.toString()}/hobbyists/${hobbyistId.toString()}", {});
+    return response;
+  }
+  Future<Response> getFavoriteArtwork(int hobbyistId)async{
+    Response response= await get("/api/v1/hobbyistfavoriteartworks/hobbyists/${hobbyistId.toString()}/artworks");
+    return response;
+  }
 
 }
