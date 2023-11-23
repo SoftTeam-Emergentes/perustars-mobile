@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:peru_stars_mobile/profile/domain/interfaces/ArtistInterface.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/data_source/artist_remote_data_provider.dart';
@@ -28,14 +30,18 @@ class ArtistRepository implements ArtistInterface{
   }
 
   @override
-  Future GetAllArtist() async {
+  Future<List<ArtistModel>> GetAllArtist() async {
     Response response=await _artistRemoteDataProvider.getAllArtist();
-    return response;
+    List<dynamic> listApi=json.decode(response.data);
+    List<ArtistModel>listArist= listApi.map((e) => ArtistModel.fromJson(e)).toList();
+    return listArist;
   }
 
   @override
-  Future GetArtistById(int id) async{
+  Future<ArtistModel> GetArtistById(int id) async{
     Response response=await _artistRemoteDataProvider.getArtistByArtistId(id);
-    return response;
+    dynamic respApi=json.decode(response.data);
+    ArtistModel artistModel=ArtistModel.fromJson(respApi);
+    return artistModel;
   }
 }

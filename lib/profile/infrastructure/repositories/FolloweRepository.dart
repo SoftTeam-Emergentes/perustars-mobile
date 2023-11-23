@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:peru_stars_mobile/profile/domain/interfaces/FollowerInterface.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/data_source/follower_remote_data_provider.dart';
+import 'package:peru_stars_mobile/profile/infrastructure/models/artist_model.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/models/follower_model.dart';
 
 class FollowerRepository implements FollowerInterface{
@@ -23,15 +26,19 @@ class FollowerRepository implements FollowerInterface{
   }
 
   @override
-  Future getFollowedArtistByHobbyistId(int hobbyistId)async {
+  Future<List<ArtistModel>> getFollowedArtistByHobbyistId(int hobbyistId)async {
     Response response=await _followerDataProvider.getFollowedArtistByHobbyistId(hobbyistId);
-    return response;
+    List<dynamic> listApi=json.decode(response.data);
+    List<ArtistModel> listResponse=listApi.map((e) => ArtistModel.fromJson(e)).toList();
+    return listResponse;
   }
 
   @override
-  Future getFollowerByArtistId(int artistId)async {
+  Future<List<FollowerModel>> getFollowerByArtistId(int artistId)async {
     Response response=await _followerDataProvider.getFollowersByArtistId(artistId);
-    return response;
+    List<dynamic> listApi=json.decode(response.data);
+    List<FollowerModel> listResponse=listApi.map((e) => FollowerModel.fromJson(e)).toList();
+    return listResponse;
   }
 
 }

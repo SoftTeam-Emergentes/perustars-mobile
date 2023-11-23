@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:peru_stars_mobile/profile/domain/interfaces/HobbyistInterface.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/data_source/hobbyist_remote_data_provider.dart';
@@ -28,9 +30,11 @@ class HobbyistRepository implements HobbyistInterface{
   }
 
   @override
-  Future getHobbyistById(int id) async{
+  Future<HobbyistModel> getHobbyistById(int id) async{
     Response response= await _hobbyistDataProvider.getHobbyistById(id);
-    return response;
+    dynamic respApi=json.decode(response.data);
+    HobbyistModel hobbyistModel=HobbyistModel.fromJson(respApi);
+    return hobbyistModel;
   }
 
 
