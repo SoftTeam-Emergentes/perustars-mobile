@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 import 'package:peru_stars_mobile/notification_management/presentation/notification_list/bloc/bloc.dart';
 
 class NotificationButton extends StatelessWidget {
   NotificationButton({Key? key}) : super(key: key);
 
 
-  final NotificationListBloc notificationListBloc = DependencyInjectionProvider
-        .instance().injectInstance<NotificationListBloc>();
+  final NotificationListBloc notificationListBloc = getIt<NotificationListBloc>();
 
 
   @override

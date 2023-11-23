@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 // TODO:This_file_must_be_in_a_connectivity_or_providers_folder
 abstract class HttpCommon {
-  final String _baseUrl = "https://perustarsdddapi.azurewebsites.net";
+  final String _baseUrl = "https://perustarsddd.azurewebsites.net";
   late final Dio _dio;
   HttpCommon() {
     _dio = Dio(BaseOptions(

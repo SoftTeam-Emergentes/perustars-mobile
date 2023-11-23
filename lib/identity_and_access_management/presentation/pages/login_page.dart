@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/infrastructure/repositories/UserRepository.dart';
+import 'package:peru_stars_mobile/profile/infrastructure/repositories/HobbyistRepository.dart';
 import 'package:peru_stars_mobile/services/mini-storage.dart' as storage;
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
@@ -121,8 +123,8 @@ class _LoginPageState extends State<LoginPage> {
                               if (value == null || value.isEmpty) {
                                 return 'Por favor ingrese su contraseña';
                               }
-                              if (value.length < 8) {
-                                return 'Debe tener mínimo 8 caracteres';
+                              if (value.length < 5) {
+                                return 'Debe tener mínimo 5 caracteres';
                               }
 
                               return null;
@@ -256,10 +258,21 @@ class _LoginPageState extends State<LoginPage> {
 
       log('input: ' + userDataFromUi.toMap().toString());
 
-      dynamic response = await UserRepository().logIn(_usernameController.text, _passwordController.text);
+      bool response = await UserRepository().logIn(_usernameController.text, _passwordController.text);
       if(response){
+        String hobbyistId = await storage.readAsync("hobbyistId");
+        print("Hobbyist: $hobbyistId");
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => MyHomePage()));
+      } else {
+        showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return const AlertDialog(
+            title: Text("Invalid credentials")
+          );
+        }
+      );
       }
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
@@ -271,7 +284,7 @@ class _LoginPageState extends State<LoginPage> {
   _nextPageAfterLogin(BuildContext context, int userId) async {
     bool typeOfUserIdentified = false;
 
-    await HobbyistsApiService().getByUserId(userId).then((response) {
+    await HobbyistRepository().getHobbyistByUserId(userId).then((response) {
       if (response.statusCode == 200) {
         log('hobbyist: ' + response.data.toString());
         Navigator.of(context).pushReplacement(
@@ -280,20 +293,23 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         log("Error getting hobbyist: ${response.statusCode}");
       }
+    })
+    .catchError((error) {
+      print("Error in login $error");
     });
 
     if (typeOfUserIdentified) return;
 
-    await ArtistsApiService().getByUserId(userId).then((response) {
-      if (response.statusCode == 200) {
-        log('artist: ' + response.data.toString());
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => ProfilePage()));
-        return;
-      } else {
-        log("Error getting artist: ${response.statusCode}");
-      }
-    });
+    // await ArtistsApiService().getByUserId(userId).then((response) {
+    //   if (response.statusCode == 200) {
+    //     log('artist: ' + response.data.toString());
+    //     Navigator.of(context).pushReplacement(
+    //         MaterialPageRoute(builder: (context) => ProfilePage()));
+    //     return;
+    //   } else {
+    //     log("Error getting artist: ${response.statusCode}");
+    //   }
+    // });
   }
 
   _showRegister(BuildContext context) {

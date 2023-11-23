@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/widgets/art_event_card.dart';
-import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 import '../bloc/bloc.dart';
 
 class HobbyistArtEventListScreen extends StatelessWidget {
-  const HobbyistArtEventListScreen({Key? key}) : super(key: key);
+  HobbyistArtEventListScreen({Key? key}) : super(key: key) {
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Art Events"), automaticallyImplyLeading: false),
       body: BlocProvider<ArtEventListBloc>(
-        create: (BuildContext context) => 
-          DependencyInjectionProvider.instance()
-          .injectInstance<ArtEventListBloc>()..add(FetchArtEventListEvent()),
+        create: (context) => getIt<ArtEventListBloc>()..add(FetchArtEventListEvent()),
         child: BlocBuilder<ArtEventListBloc, ArtEventListState>(
           builder: (BuildContext context, ArtEventListState state) {
             if(state is ArtEventListLoadedState) {

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:peru_stars_mobile/common/exceptions/exceptions.dart';
+import 'package:peru_stars_mobile/common/utils/http_status.dart';
 import 'package:peru_stars_mobile/profile/domain/interfaces/HobbyistInterface.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/data_source/hobbyist_remote_data_provider.dart';
 import 'package:peru_stars_mobile/profile/infrastructure/models/hobbyist_model.dart';
@@ -13,9 +15,13 @@ class HobbyistRepository implements HobbyistInterface{
 
   @override
   Future createHobbyist(int userId, int age) async{
-    HobbyistModel model=HobbyistModel(id:0, userId: userId, age: age);
-    Response response=await _hobbyistDataProvider.createHobbyist(model);
-    return response;
+    try {
+      HobbyistModel model=HobbyistModel(id:0, userId: userId, age: age);
+      Response response=await _hobbyistDataProvider.createHobbyist(model);
+      return response;
+    }catch(e) {
+      throw ServerException("Something went wronf while creating hobbyist", HttpStatus.fromStatusCode(500));
+    }
   }
 
   @override
@@ -35,6 +41,12 @@ class HobbyistRepository implements HobbyistInterface{
     dynamic respApi=json.decode(response.data);
     HobbyistModel hobbyistModel=HobbyistModel.fromJson(respApi);
     return hobbyistModel;
+  }
+  
+  @override
+  Future<Response> getHobbyistByUserId(int userId) async {
+    Response response = await _hobbyistDataProvider.getHobbyistByUserId(userId);
+    return response;
   }
 
 

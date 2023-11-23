@@ -3,15 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:peru_stars_mobile/art_event_management/domain/entities/art_event.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/widgets/art_event_card.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/widgets/artists/art_event_form.dart';
-import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 
 import '../bloc/bloc.dart';
 
 class ArtistArtEventListScreen extends StatelessWidget {
   ArtistArtEventListScreen({Key? key}) : super(key: key);
 
-  final ArtEventListBloc _artEventListBloc = DependencyInjectionProvider.instance()
-          .injectInstance<ArtEventListBloc>();
+  final ArtEventListBloc _artEventListBloc = getIt<ArtEventListBloc>();
 
   List<ArtEvent> _currentArtEvents = [];
 

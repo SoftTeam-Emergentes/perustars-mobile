@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 import 'package:peru_stars_mobile/notification_management/presentation/notification_list/bloc/bloc.dart';
 import 'package:peru_stars_mobile/notification_management/presentation/widgets/notification_list.dart';
 
@@ -11,7 +11,7 @@ class NotificationListScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<NotificationListBloc>(
-      create: (context) => DependencyInjectionProvider.instance().injectInstance<NotificationListBloc>(),
+      create: (context) => getIt<NotificationListBloc>(),
       child: BlocBuilder<NotificationListBloc, NotificationListState>(
         builder: (BuildContext context, NotificationListState state) {
           if(state is VisibleNotificationListState) {

@@ -5,4 +5,5 @@ abstract class HobbyistInterface{
   Future<HobbyistModel> getHobbyistById(int id);
   Future<dynamic> deleteHobbyistById(int id);
   Future<dynamic> editHobbyistId(int id);
+  Future<dynamic> getHobbyistByUserId(int userId);
 }

@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:peru_stars_mobile/common/config/mini-storage.dart' as miniStorage;
 import 'package:peru_stars_mobile/identity_and_access_management/infrastructure/models/UserModel.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/infrastructure/models/logInUserModel.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/infrastructure/repositories/UserRepository.dart';
 import 'package:peru_stars_mobile/main.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/presentation/pages/login_page.dart';
+import 'package:peru_stars_mobile/profile/infrastructure/repositories/HobbyistRepository.dart';
 import 'package:peru_stars_mobile/ui/pages/privacy_policy_page.dart';
 import 'package:peru_stars_mobile/ui/pages/terms_and_conditions_page.dart';
 import 'package:peru_stars_mobile/identity_and_access_management/presentation/widgets/login_background.dart';
@@ -341,14 +343,28 @@ class _RegisterPageState extends State<RegisterPage> {
   void _register(BuildContext context) async {
     // in the future this will be improved
 
+    // TODO: Fix later
+
     bool response= await UserRepository().register(_fisrtNameController.text, _lastNameController.text, _emailController.text, _passwordController.text);
     if (response && _agreeWithConditions) {
+      String userId = await miniStorage.readAsync("temp-userId") as String;
+      print("Registered User id $userId");
+      await HobbyistRepository().createHobbyist(int.parse(userId), 18);
       setState(() {
         _loading = true;
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => LoginPage()));
       });
+      return;
     }
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return const AlertDialog(
+          title: Text("Error while registering user")
+        );
+      }
+    );
   }
 
   _showRegister(BuildContext context) {

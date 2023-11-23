@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 import 'package:peru_stars_mobile/services/artists-api.service.dart';
 import 'package:peru_stars_mobile/services/hobbyists-api.service.dart';
 import 'package:peru_stars_mobile/services/mini-storage.dart' as storage;
@@ -12,6 +13,7 @@ import 'ui/widgets/BottomBar.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  setupGetIt();
   runApp(MyApp());
 }
  

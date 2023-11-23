@@ -4,8 +4,8 @@ import 'package:peru_stars_mobile/art_event_management/domain/entities/art_event
 import 'package:peru_stars_mobile/art_event_management/presentation/art_events_list/bloc/art_event_list_bloc.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/art_events_list/bloc/art_event_list_event.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/services/art_event_shared_service.dart';
-import 'package:peru_stars_mobile/common/config/dependency_inyection.dart';
 import 'package:peru_stars_mobile/common/config/mini-storage.dart' as miniStorage;
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 
 class ArtEventForm extends StatefulWidget {
   const ArtEventForm({Key? key}) : super(key: key);
@@ -19,10 +19,10 @@ class _ArtEventFormState extends State<ArtEventForm> {
   final TextEditingController _descriptionController = TextEditingController();
   bool? _isOnline = false;
 
-  final ArtEventListBloc _artEventListBloc = DependencyInjectionProvider.instance().injectInstance<ArtEventListBloc>();
-  final BigInt _artistId = miniStorage.read("artistId") as BigInt;
+  final ArtEventListBloc _artEventListBloc = getIt<ArtEventListBloc>();
+  final BigInt _artistId = BigInt.parse(miniStorage.read("artistId")); 
 
-  final ArtEventSharedService currentArtEvents = DependencyInjectionProvider.instance().injectInstance<ArtEventSharedService>();
+  final ArtEventSharedService currentArtEvents = getIt<ArtEventSharedService>();
 
   _ArtEventFormState();
 
