@@ -28,7 +28,9 @@ class DependencyInjectionProvider {
   void _configureServiceMap() {
     /* Art Events Dependencies Inyections */
     _dependencyMap[ArtEventInterface] = ArtEventRepository();
-    _dependencyMap[ArtEventFacadeService] = ArtEventFacadeService();
+    _dependencyMap[ArtEventFacadeService] = ArtEventFacadeService(
+      artEventInterface: _dependencyMap[ArtEventInterface] as ArtEventInterface
+    );
     _dependencyMap[ArtEventListBloc] = ArtEventListBloc(
       artEventFacadeService: _dependencyMap[ArtEventFacadeService] as ArtEventFacadeService
     );

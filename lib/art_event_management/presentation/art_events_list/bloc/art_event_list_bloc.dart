@@ -25,8 +25,8 @@ class ArtEventListBloc extends Bloc<ArtEventListEvent, ArtEventListState> {
   }
 
   FutureOr<void> onUpdateArtEventList(AddArtEventListEvent event, Emitter<ArtEventListState> emmiter) async {
-    
-   _artEventSharedService.addArtEvent(event.newArtEvent);
+    String response = await _artEventFacadeService.registerNewArtEvent(event.newArtEvent);
+    _artEventSharedService.addArtEvent(event.newArtEvent);
    emmiter.call(ArtEventListUpdatedState(_artEventSharedService.currentArtEvents));
   }
   

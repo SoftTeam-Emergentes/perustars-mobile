@@ -9,6 +9,7 @@ import 'package:peru_stars_mobile/art_event_management/domain/interfaces/art_eve
 import 'package:peru_stars_mobile/art_event_management/infrastructure/data_sources/art_events_remote_data_provider.dart';
 import 'package:peru_stars_mobile/art_event_management/infrastructure/models/art_event_model.dart';
 import 'package:peru_stars_mobile/common/exceptions/exceptions.dart';
+import 'package:peru_stars_mobile/common/utils/http_status.dart';
 
 class ArtEventRepository implements ArtEventInterface {
 
@@ -62,6 +63,17 @@ class ArtEventRepository implements ArtEventInterface {
   Future<String> startArtEvent(Long artEventId) {
     // TODO: implement startArtEvent
     throw UnimplementedError();
+  }
+  
+  @override
+  Future<String> addNewArtEvent(ArtEvent artEvent) async {
+    try {
+      String response = await _artEventRemoteProvider.registerNewArtEvent(artEvent as ArtEventModel);
+      return response;
+    } catch(e) {
+      log(e.toString());
+      throw ServerException("Something went wrong when registering a new art event", HttpStatus.fromStatusCode(500));
+    }
   }
   
 }

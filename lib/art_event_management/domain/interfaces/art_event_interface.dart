@@ -9,4 +9,5 @@ abstract class ArtEventInterface {
   Future<String> cancelArtEvent(Long artEventId);
   Future<String> editArtEvent(Long artEventId);
   Future<List<ArtEvent>> getAllEvents();
+  Future<String> addNewArtEvent(ArtEvent artEvent);
 }
