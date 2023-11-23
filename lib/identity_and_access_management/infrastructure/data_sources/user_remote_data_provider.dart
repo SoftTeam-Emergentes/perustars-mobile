@@ -17,6 +17,5 @@ class UserRemoteProvider extends HttpCommon{
   Future<Response>logIn(LogInUserModel model)async{
       Response response= await post("/api/v1/users/login",model.toJson());
       return response;
-
   }
 }
