@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:peru_stars_mobile/artwork/presentation/pages/artwork_page_new.dart';
+import 'package:peru_stars_mobile/artwork/presentation/pages/artwork_page.dart';
 
 class ArtworkCard extends StatelessWidget {
   final String? title;
