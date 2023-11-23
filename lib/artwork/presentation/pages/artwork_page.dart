@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:peru_stars_mobile/ui/widgets/artwork_card.dart';
+import 'package:peru_stars_mobile/artwork/presentation/widgets/artwork_card.dart';
 import 'package:peru_stars_mobile/ui/widgets/artist_card.dart';
-import 'package:peru_stars_mobile/ui/widgets/carousel.dart';
+import 'package:peru_stars_mobile/artwork/presentation/widgets/carousel.dart';
 
 
 class ArtworkPage extends StatelessWidget {
+  final int? ArtistId;
   final String? title;
   final String? subtitle;
   final String? price;
 
-  const ArtworkPage({Key? key, this.title, this.subtitle, this.price}) : super(key: key);
+  const ArtworkPage({Key? key, this.ArtistId,this.title, this.subtitle, this.price}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
