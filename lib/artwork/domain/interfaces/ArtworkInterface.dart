@@ -6,9 +6,9 @@ import 'package:peru_stars_mobile/artwork/infrastructure/models/ArtworkModel.dar
 
 abstract class ArtworkInterface{
   Future<Response> createArtwork(int artistId,String Title,String Description,ArtworkContent MainContent,Float Price, ArtworkContent CoverImage);
-  Future<Response> getArtworkByArtistId(int artistId);
+  Future<List<ArtworkModel>> getArtworkByArtistId(int artistId);
   Future<Response> deleteArtworkById(int artworkId,int artistId);
-  Future<Response> getArtworks();
+  Future<List<ArtworkModel>> getArtworks();
   Future<Response> favoriteArtwork(int artworkId, int hobbyistId);
   Future<List<ArtworkModel>> getFavoritesArtworksByHobbyistId(int hobbyistId);
 }

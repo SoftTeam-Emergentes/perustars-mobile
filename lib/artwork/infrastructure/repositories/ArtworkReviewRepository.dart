@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'dart:ffi';
 
 import 'package:dio/src/response.dart';
 import 'package:peru_stars_mobile/artwork/domain/interfaces/ArtworkReviewsInterface.dart';
 import 'package:peru_stars_mobile/artwork/infrastructure/data_sources/ArtworkReview_remote_data_provider.dart';
+import 'package:peru_stars_mobile/artwork/infrastructure/models/ArtworkReviewModel.dart';
 import 'package:peru_stars_mobile/artwork/infrastructure/models/CreateArtworkReviewModel.dart';
 
 class ArtworkReviewRepository implements ArtworkReviewInterface{
@@ -24,10 +26,12 @@ class ArtworkReviewRepository implements ArtworkReviewInterface{
   }
 
   @override
-  Future<Response> getArtworkReviewById(int artworkId) async{
+  Future<List<ArtworkReviewModel>> getArtworkReviewById(int artworkId) async{
     try{
       Response response=await artworkReviewDataProvider.getArtworkByArtworkId(artworkId);
-      return response;
+      List<dynamic> resApi=json.decode(response.data);
+      List<ArtworkReviewModel> listResponse=resApi.map((e) => ArtworkReviewModel.fromJson(e)).toList();
+      return listResponse;
     }catch(e){
       throw Exception("Something went wrong, error: "+e.toString());
     }

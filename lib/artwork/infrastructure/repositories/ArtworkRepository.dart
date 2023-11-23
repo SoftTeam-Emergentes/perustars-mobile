@@ -27,15 +27,19 @@ class ArtworkRepository implements ArtworkInterface{
   }
 
   @override
-  Future<Response> getArtworkByArtistId(int artistId) async{
+  Future<List<ArtworkModel>> getArtworkByArtistId(int artistId) async{
     Response response=await artworkDataProvider.getArtworkByArtistId(artistId);
-    return response;
+    List<dynamic> listApi=json.decode(response.data);
+    List<ArtworkModel> listResponse=listApi.map((e) => ArtworkModel.fromJson(e)).toList();
+    return listResponse;
   }
 
   @override
-  Future<Response> getArtworks() async{
+  Future<List<ArtworkModel>> getArtworks() async{
     Response response= await artworkDataProvider.getAllArtworks();
-    return response;
+    List<dynamic> listApi=json.decode(response.data);
+    List<ArtworkModel> listResponse=listApi.map((e) => ArtworkModel.fromJson(e)).toList();
+    return listResponse;
   }
 
   @override
