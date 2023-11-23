@@ -9,7 +9,7 @@ class ArtEventFacadeService {
   late final ArtEventInterface _artEventInterface;
 
   Future<List<ArtEvent>> getAllArtEvents() async {
-    return [ArtEvent(title: "Sample", description: "Sample", startDateTime: DateTime(2023, 11, 18), artistId: BigInt.one)];
+    return _artEventInterface.getAllEvents();
   }
 
   Future<String> registerNewArtEvent(ArtEvent artEvent) async {
