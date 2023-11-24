@@ -1,17 +1,19 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/common/helpers/get_it_helper.dart';
 import 'package:peru_stars_mobile/services/artists-api.service.dart';
 import 'package:peru_stars_mobile/services/hobbyists-api.service.dart';
 import 'package:peru_stars_mobile/services/mini-storage.dart' as storage;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:peru_stars_mobile/ui/pages/home_page.dart';
-import 'package:peru_stars_mobile/ui/pages/login_page.dart';
+import 'package:peru_stars_mobile/identity_and_access_management/presentation/pages/login_page.dart';
 import 'package:peru_stars_mobile/ui/pages/profile_page.dart';
 import 'ui/widgets/BottomBar.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  setupGetIt();
   runApp(MyApp());
 }
  
@@ -24,17 +26,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
-          headline1: TextStyle(
+          headline1: const TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
             color: Color(0XFF232323),
           ),
-          headline2: TextStyle(
+          headline2: const TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
-          headline3: TextStyle(
+          headline3: const TextStyle(
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: Color(0XFF232323),
@@ -44,17 +46,17 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w500,
             color: Colors.red[300],
           ),
-          headline5: TextStyle(
+          headline5: const TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.w500,
             color: Color(0XFFB7B7D2),
           ),
-          bodyText1: TextStyle(
+          bodyText1: const TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.w400,
             color: Colors.black87,
           ),
-          bodyText2: TextStyle(
+          bodyText2: const TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.w400,
             color: Color(0XFFB7B7D2),

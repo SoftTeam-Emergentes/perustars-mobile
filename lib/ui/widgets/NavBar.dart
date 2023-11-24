@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NavBar extends StatelessWidget with PreferredSizeWidget{
+class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({Key? key}) : super(key: key);
 
   @override
@@ -35,6 +35,6 @@ class NavBar extends StatelessWidget with PreferredSizeWidget{
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
 }

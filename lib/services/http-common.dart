@@ -1,7 +1,7 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:dio/dio.dart';
 
-final String baseUrl = 'https://perustarsapi.azurewebsites.net/api/';
+const String baseUrl = 'https://perustarsapi.azurewebsites.net/api/';
 final headers = {
   'Content-type': 'application/json',
   'Access-Control-Allow-Origin': '*',
@@ -22,8 +22,8 @@ Future<Response> post(String url, Map<String, dynamic> body,
   } on DioError catch (e) {
     print(e);
     return Response(
-      statusCode: e.response.statusCode,
-      data: e.response.data,
+      statusCode: e.response?.statusCode,
+      data: e.response?.data
     );
   }
 }
@@ -40,8 +40,8 @@ Future<Response> put(String url, Map<String, dynamic> body,
   } on DioError catch (e) {
     print(e);
     return Response(
-      statusCode: e.response.statusCode,
-      data: e.response.data,
+      statusCode: e.response?.statusCode,
+      data: e.response?.data
     );
   }
 }
@@ -57,8 +57,8 @@ Future<Response> get(String url, [String? functionName]) async {
   } on DioError catch (e) {
     print(e);
     return Response(
-      statusCode: e.response.statusCode,
-      data: e.response.data,
+      statusCode: e.response?.statusCode,
+      data: e.response?.data
     );
   }
 }
@@ -74,8 +74,8 @@ Future<Response> delete(String url, [String? functionName]) async {
   } on DioError catch (e) {
     print(e);
     return Response(
-      statusCode: e.response.statusCode,
-      data: e.response.data,
+      statusCode: e.response?.statusCode,
+      data: e.response?.data
     );
   }
 }
