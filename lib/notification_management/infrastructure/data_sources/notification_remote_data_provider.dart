@@ -4,11 +4,21 @@ import 'package:peru_stars_mobile/notification_management/infrastructure/models/
 
 class NotificationRemoteDataProvider extends HttpCommon {
   Future<List<NotificationModel>> getAllNotificationsByArtistId(BigInt artistId) async {
-    Response<List<NotificationModel>> response = await get<List<NotificationModel>>("/api/v1/artists/$artistId/notifications");
-    return response.data;
+    Response response = await get("/api/v1/artists/$artistId/notifications");
+    List<dynamic> data = response.data;
+    List<NotificationModel> result = [];
+    for(dynamic jsonModel in data) {
+      result.add(NotificationModel.fromJson(jsonModel));
+    }
+    return result;
   }
   Future<List<NotificationModel>> getAllNotificationsByHobbyistId(BigInt hobbyistId) async {
-    Response<List<NotificationModel>> response = await get<List<NotificationModel>>("/api/v1/hobbyists/$hobbyistId/notifications");
-    return response.data;
+    Response response = await get("/api/v1/hobbyists/$hobbyistId/notifications");
+    List<dynamic> data = response.data;
+    List<NotificationModel> result = [];
+    for(dynamic jsonModel in data) {
+      result.add(NotificationModel.fromJson(jsonModel));
+    }
+    return result;
   }
 }

@@ -17,8 +17,8 @@ class NotificationModel extends Notification {
   hobbyistId: hobbyistId, sentAt: sentAt, isRead: isRead, collected: collected);
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) {
-    return NotificationModel(id: json["id"], title: json["title"], description: json["description"],
-    notificationSender: json["notificationSender"], artistId: json["artistId"], hobbyistId: json["hobbyistId"],
-    sentAt: json["sentAt"], isRead: json["isRead"], collected: json["collected"]);
+    return NotificationModel(id: BigInt.from(json["id"]), title: json["title"], description: json["description"],
+    notificationSender: json["notificationSender"].toString(), artistId: BigInt.from(json["artistId"]), hobbyistId: BigInt.from(json["hobbyistId"]),
+    sentAt: DateTime.parse(json["sentAt"]), isRead: json["isRead"], collected: json["collected"]);
   }  
 }
