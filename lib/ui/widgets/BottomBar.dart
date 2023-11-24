@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:peru_stars_mobile/art_event_management/presentation/art_events_list/hobbysts/hobbyist_art_events_list_screen.dart';
 import 'package:peru_stars_mobile/artwork/presentation/pages/artwork_page.dart';
+import 'package:peru_stars_mobile/notification_management/presentation/notification_list/notification_list_screen.dart';
 import 'package:peru_stars_mobile/ui/pages/favorites_page.dart';
 import 'package:peru_stars_mobile/profile/presentation/pages/home_amateur.dart';
 import 'package:peru_stars_mobile/ui/pages/search_page.dart';
@@ -66,7 +67,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: Center(
           child: _showPage,
         ),
-      ),
+      )
     );
   }
 }

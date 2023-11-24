@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/notification_management/presentation/notification_list/notification_list_screen.dart';
+import 'package:peru_stars_mobile/notification_management/presentation/widgets/notification_button.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -30,6 +32,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             );
           },
         ),
+        const NotificationListScreenWidget()
       ],
     );
   }
