@@ -27,22 +27,22 @@ class ArtEventRemoteProvider extends HttpCommon {
     Response<String> response = await post<String>("/api/v1/art-events", model.toJson(), token: token);
     return response.data;
   }
-  Future<ArtEventModel> getArtEventById(Long artEventId) async {
+  Future<ArtEventModel> getArtEventById(BigInt artEventId) async {
     String token = await miniStorage.readAsync("token");
     Response<ArtEventModel> response = await get<ArtEventModel>("/api/v1/art-events/$artEventId", token: token);
     return response.data;
   }
-  Future<String> startArtEvent(Long artEventId) async {
+  Future<String> startArtEvent(BigInt artEventId) async {
     String token = await miniStorage.readAsync("token");
     Response<String> response = await patch<String>("/api/v1/art-events/$artEventId/start", null, token: token);
     return response.data;
   }
-  Future<String> cancelArtEvent(Long artEventId) async {
+  Future<String> cancelArtEvent(BigInt artEventId) async {
     String token = await miniStorage.readAsync("token");
     Response<String> response = await patch<String>("/api/v1/art-events/$artEventId/cancel", null, token: token);
     return response.data;
   }
-  Future<String> deleteArtEvent(Long artEventId) async {
+  Future<String> deleteArtEvent(BigInt artEventId) async {
     String token = await miniStorage.readAsync("token");
     Response<String> response = await delete<String>("/api/v1/art-events/$artEventId", token: token);
     return response.data;

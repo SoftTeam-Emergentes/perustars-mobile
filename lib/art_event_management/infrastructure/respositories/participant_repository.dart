@@ -6,7 +6,7 @@ import 'package:peru_stars_mobile/art_event_management/infrastructure/models/par
 
 class ParticipantRepository implements ParticipantInterface {
   @override
-  Future<String> deleteParticipantById(Long participantId) {
+  Future<String> deleteParticipantById(BigInt participantId) {
     // TODO: implement deleteParticipantById
     throw UnimplementedError();
   }

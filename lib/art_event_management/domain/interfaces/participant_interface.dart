@@ -5,6 +5,6 @@ import 'package:peru_stars_mobile/art_event_management/domain/entities/participa
 abstract class ParticipantInterface {
   Future<List<Participant>> getParticipantsByArtistId();
   Future<List<Participant>> getAllParticipants();
-  Future<String> deleteParticipantById(Long participantId);
+  Future<String> deleteParticipantById(BigInt participantId);
   Future<Participant> registerParticipation(Participant participant);
 }

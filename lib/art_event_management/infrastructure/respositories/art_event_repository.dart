@@ -20,7 +20,7 @@ class ArtEventRepository implements ArtEventInterface {
   late final ArtEventRemoteProvider _artEventRemoteProvider;
 
   @override
-  Future<String> cancelArtEvent(Long artEventId) async {
+  Future<String> cancelArtEvent(BigInt artEventId) async {
     try {
       String response = await _artEventRemoteProvider.cancelArtEvent(artEventId);
       return response;
@@ -31,7 +31,7 @@ class ArtEventRepository implements ArtEventInterface {
   }
 
   @override
-  Future<String> editArtEvent(Long artEventId) {
+  Future<String> editArtEvent(BigInt artEventId) {
     // TODO: implement editArtEvent
     throw UnimplementedError();
   }
@@ -50,19 +50,19 @@ class ArtEventRepository implements ArtEventInterface {
   }
 
   @override
-  Future<List<ArtEvent>> getArtEventsByArtistId(Long artistId) {
+  Future<List<ArtEvent>> getArtEventsByArtistId(BigInt artistId) {
     // TODO: implement getArtEventsByArtistId
     throw UnimplementedError();
   }
 
   @override
-  Future<List<ArtEvent>> getArtEventsByHobbyistId(Long hobbyistId) {
+  Future<List<ArtEvent>> getArtEventsByHobbyistId(BigInt hobbyistId) {
     // TODO: implement getArtEventsByHobbyistId
     throw UnimplementedError();
   }
 
   @override
-  Future<String> startArtEvent(Long artEventId) {
+  Future<String> startArtEvent(BigInt artEventId) {
     // TODO: implement startArtEvent
     throw UnimplementedError();
   }
