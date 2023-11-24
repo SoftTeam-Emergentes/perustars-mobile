@@ -40,9 +40,11 @@ class ArtEventRepository implements ArtEventInterface {
   Future<List<ArtEvent>> getAllEvents() async {
     try {
       List<ArtEvent> artEvents = await _artEventRemoteProvider.getAllArtEvents();
+      print("Provided art events: $artEvents");
       return artEvents;
     } catch(e) {
       log("XD");
+      print("Algo salio mal al obtener art events all: $e");
       throw Exception("Something went wrong");
     }
   }
