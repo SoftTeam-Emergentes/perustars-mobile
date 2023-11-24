@@ -20,6 +20,7 @@ class ArtEventListBloc extends Bloc<ArtEventListEvent, ArtEventListState> {
 
   FutureOr<void> onFetchArtEventList(FetchArtEventListEvent event, Emitter<ArtEventListState> emitter) async {
     final List<ArtEvent> artEvents = await _artEventFacadeService.getAllArtEvents();
+    print("Art events: $artEvents");
     _artEventSharedService.currentArtEvents = artEvents;
     emitter.call(ArtEventListLoadedState(artEvents));
   }

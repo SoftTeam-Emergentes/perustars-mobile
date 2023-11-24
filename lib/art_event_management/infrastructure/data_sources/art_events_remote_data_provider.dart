@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:dio/dio.dart';
+import 'package:peru_stars_mobile/art_event_management/domain/entities/art_event.dart';
 import 'package:peru_stars_mobile/art_event_management/infrastructure/models/art_event_model.dart';
 import 'package:peru_stars_mobile/common/config/http_common.dart';
 import 'package:peru_stars_mobile/common/config/mini-storage.dart' as miniStorage;
@@ -11,8 +12,15 @@ class ArtEventRemoteProvider extends HttpCommon {
 
   Future<List<ArtEventModel>> getAllArtEvents() async {
     String token = await miniStorage.readAsync("token");
-    Response<List<ArtEventModel>> response = await get<List<ArtEventModel>>("/api/v1/art-events", token: token);
-    return response.data;
+    Response response = await get("/api/v1/art-events", token: token);
+    List<dynamic> data = response.data;
+    List<ArtEventModel> result = [];
+    for(dynamic jsonModel in data) {
+      result.add(ArtEventModel.fromJson(jsonModel));
+    }
+    print(result);
+    print(response.data);
+    return result;
   }
   Future<String> registerNewArtEvent(ArtEventModel model) async {
     String token = await miniStorage.readAsync("token");
