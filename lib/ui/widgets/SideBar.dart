@@ -34,21 +34,21 @@ class SideBar extends StatelessWidget {
           ),
           ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text("Cuenta"),
+              title: Text("Accounts"),
               onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ProfilePage()))),
           ListTile(
               leading: Icon(Icons.looks),
-              title: Text("Gustos"),
-              onTap: () => print("Gustos")),
+              title: Text("Likes"),
+              onTap: () => print("Likes")),
           ListTile(
               leading: Icon(Icons.settings),
-              title: Text("Configuración"),
-              onTap: () => print("Configuración")),
+              title: Text("Configuration"),
+              onTap: () => print("Configuration")),
           Divider(),
           ListTile(
               leading: Icon(Icons.power_off),
-              title: Text("Cerrar Sesión"),
+              title: Text("Sign Out"),
               onTap: () => _closeSesion(context)),
         ],
       ),

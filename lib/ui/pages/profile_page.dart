@@ -76,10 +76,10 @@ class _ProfilePageState extends State<ProfilePage> with TickerProviderStateMixin
               unselectedLabelColor: Colors.grey,
               tabs: [
                 Tab(
-                  text: "Mis Obras",
+                  text: "My Works",
                 ),
                 Tab(
-                  text: "Mis Eventos",
+                  text: "My Events",
                 ),
               ],
             ),

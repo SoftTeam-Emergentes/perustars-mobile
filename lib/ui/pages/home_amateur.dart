@@ -21,7 +21,7 @@ class _HomeAmateurState extends State<HomeAmateur>
         Padding(
           padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           child: Text(
-            "Tus Artistas",
+            "Your Artists",
             style: Theme.of(context).textTheme.headline3,
           ),
         ),
@@ -37,10 +37,10 @@ class _HomeAmateurState extends State<HomeAmateur>
             unselectedLabelColor: Colors.grey,
             tabs: [
               Tab(
-                text: "Obras",
+                text: "Works",
               ),
               Tab(
-                text: "Eventos",
+                text: "Events",
               ),
             ],
           ),

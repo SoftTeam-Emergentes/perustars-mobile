@@ -49,7 +49,7 @@ class _HomeAmateurState extends State<HomeAmateur> with TickerProviderStateMixin
             Padding(
               padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
               child: Text(
-                "Tus Artistas",
+                "Your Artists",
                 style: Theme.of(context).textTheme.headline3,
               ),
             ),
@@ -65,10 +65,10 @@ class _HomeAmateurState extends State<HomeAmateur> with TickerProviderStateMixin
                 unselectedLabelColor: Colors.grey,
                 tabs: [
                   Tab(
-                    text: "Obras",
+                    text: "Works",
                   ),
                   Tab(
-                    text: "Eventos",
+                    text: "Events",
                   ),
                 ],
               ),

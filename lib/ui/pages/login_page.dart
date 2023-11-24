@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Iniciar Sesión',
+                            'Sign in',
                             style: GoogleFonts.montserrat(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w600,
@@ -94,12 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                                   value.startsWith('@') ||
                                   value.endsWith('@') ||
                                   value.length < 3) {
-                                return 'Por favor ingrese su correo electrónico';
+                                return 'Please insert your Email';
                               }
                               return null;
                             },
                             decoration: InputDecoration(
-                              labelText: "Correo",
+                              labelText: "Email",
                               prefixIcon: const Icon(Icons.person),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
@@ -117,16 +117,16 @@ class _LoginPageState extends State<LoginPage> {
                             controller: _passwordController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Por favor ingrese su contraseña';
+                                return 'Please insert your password';
                               }
                               if (value.length < 8) {
-                                return 'Debe tener mínimo 8 caracteres';
+                                return 'It must have at least 8 characters';
                               }
 
                               return null;
                             },
                             decoration: InputDecoration(
-                              labelText: "Contraseña",
+                              labelText: "Password",
                               prefixIcon: const Icon(Icons.lock),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
@@ -146,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: TextButton(
                               onPressed: null,
                               child: Text(
-                                '¿Olvidaste tu contraseña?',
+                                'You forgot your password?',
                                 style: GoogleFonts.montserrat(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400,
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                           ElevatedButton(
                             onPressed: () => _login(context),
                             child: Text(
-                              'Ingresar',
+                              'Sign in',
                               style: GoogleFonts.montserrat(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
@@ -182,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                '¿No tienes una cuenta?',
+                                "You don't have an account??",
                                 style: GoogleFonts.montserrat(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400,
@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               TextButton(
                                 child: Text(
-                                  'Registrarse',
+                                  'Sign up',
                                   style: GoogleFonts.montserrat(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w600,
@@ -233,7 +233,7 @@ class _LoginPageState extends State<LoginPage> {
           content: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Text('Iniciando sesión...'),
+              Text('Signing in...'),
               SizedBox(
                 width: 100,
               ),

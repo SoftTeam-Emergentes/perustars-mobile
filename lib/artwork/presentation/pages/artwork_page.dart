@@ -48,8 +48,8 @@ class _ArtworkPageState extends State<ArtworkPage> {
             child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("${widget.title==null?"Título":widget.title}", style: Theme.of(context).textTheme.headline3,),
-              Text("${widget.subtitle==null?"Sub título":widget.subtitle}", style: Theme.of(context).textTheme.headline5,),
+              Text("${widget.title==null?"Title":widget.title}", style: Theme.of(context).textTheme.headline3,),
+              Text("${widget.subtitle==null?"Subtitle":widget.subtitle}", style: Theme.of(context).textTheme.headline5,),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
             child: Text(
@@ -79,7 +79,7 @@ class _ArtworkPageState extends State<ArtworkPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Más del artista", style: Theme.of(context).textTheme.headline4,),
+                Text("More from the artist", style: Theme.of(context).textTheme.headline4,),
                 for (ArtworkModel artwork in artworks)
                   ArtworkCard(
                     title: artwork.Title,

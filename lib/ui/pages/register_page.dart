@@ -88,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Correo",
+                            labelText: "Email",
                             prefixIcon: const Icon(Icons.person),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -104,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: "Contraseña",
+                            labelText: "Password",
                             prefixIcon: const Icon(Icons.lock),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -261,7 +261,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '¿Ya tienes una cuenta?',
+                              'You already have an account?',
                               style: GoogleFonts.montserrat(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w400,
@@ -269,7 +269,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             TextButton(
                               child: Text(
-                                'Inicia Sesión',
+                                'Sign In',
                                 style: GoogleFonts.montserrat(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,

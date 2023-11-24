@@ -41,13 +41,13 @@ class ArtworkCard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                child: Text("${this.title==null?"Título":this.title}", style: Theme.of(context).textTheme.headline3,),
+                child: Text("${this.title==null?"Title":this.title}", style: Theme.of(context).textTheme.headline3,),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                 child: Row(
                   children: [
-                    Text("${this.subtitle==null?"Sub título":this.subtitle}", style: Theme.of(context).textTheme.headline5,),
+                    Text("${this.subtitle==null?"Subtitle":this.subtitle}", style: Theme.of(context).textTheme.headline5,),
                     Spacer(flex: 1),
                     Icon(Icons.attach_money, size: 20, color: Colors.red[300],),
                     Text("${this.price==null?"100":this.price}", style: Theme.of(context).textTheme.headline4,),

@@ -13,10 +13,10 @@ class FavoritesPage extends StatelessWidget {
       return ListView(
         padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
         children: [
-          Text("Tus favoritos", style: Theme.of(context).textTheme.headline3,),
+          Text("Your favourites", style: Theme.of(context).textTheme.headline3,),
           Center(
             heightFactor: 25,
-            child: Text("No cuentas con obras favoritas"),
+            child: Text("You do not have any favourite works"),
           )
         ],
       );
@@ -25,7 +25,7 @@ class FavoritesPage extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
       children: [
-        Text("Tus favoritos", style: Theme.of(context).textTheme.headline3,),
+        Text("Your favourites", style: Theme.of(context).textTheme.headline3,),
         Column(
           children: [
             ArtworkCard(title: "Odisea", subtitle: "George Hernández", price: "Gratis", img: "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),

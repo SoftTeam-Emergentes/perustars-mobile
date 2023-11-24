@@ -74,10 +74,10 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
                   text: "Artistas",
                 ),
                 Tab(
-                  text: "Obras",
+                  text: "Works",
                 ),
                 Tab(
-                  text: "Eventos",
+                  text: "Events",
                 ),
               ],
             ),
